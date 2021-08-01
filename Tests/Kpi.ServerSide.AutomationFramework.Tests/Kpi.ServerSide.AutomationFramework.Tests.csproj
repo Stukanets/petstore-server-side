@@ -24,11 +24,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Features\**" />
-    <EmbeddedResource Remove="Features\**" />
-    <None Remove="Features\**" />
-    <SpecFlowFeatureFiles Remove="Features\**" />
-    <SpecFlowObsoleteCodeBehindFiles Remove="Features\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\User.Delete.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\User.Get.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\User.Post.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\User.Put.feature.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -87,6 +86,21 @@
     <None Update="xunit.runner.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Features\GetPet.Definition.cs">
+      <DependentUpon>Pet.Get.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\PostPet.Definition.cs">
+      <DependentUpon>Pet.Post.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\DeletePet.Definition.cs">
+      <DependentUpon>Pet.Delete.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\PutPet.Definition.cs">
+      <DependentUpon>Pet.Put.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 

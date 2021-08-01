@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Kpi.ServerSide.AutomationFramework.Model.Platform.Communication;
 using RestSharp;
+using RestSharp.Serializers.NewtonsoftJson;
 
 namespace Kpi.ServerSide.AutomationFramework.Platform.Communication
 {
@@ -16,6 +17,7 @@ namespace Kpi.ServerSide.AutomationFramework.Platform.Communication
 
         public async Task<IRestResponse> ExecuteAsync(IRestRequest request)
         {
+            _restClient.UseNewtonsoftJson();
             if (string.IsNullOrEmpty(_restClient.BaseUrl?.ToString()))
             {
                 throw new Exception("Base uri was not set.");

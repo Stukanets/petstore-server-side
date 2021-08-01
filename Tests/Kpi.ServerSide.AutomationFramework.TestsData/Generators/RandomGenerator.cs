@@ -17,6 +17,8 @@ namespace Kpi.ServerSide.AutomationFramework.TestsData.Generators
 
         public static DateTime GetRandomDate() => GenerateRandomDates();
 
+        public static long GetRandomPositiveNumber() => GetRandomNumber(1, int.MaxValue);
+
         private static string RandomString(int size, bool lowerCase)
         {
             var builder = new StringBuilder();

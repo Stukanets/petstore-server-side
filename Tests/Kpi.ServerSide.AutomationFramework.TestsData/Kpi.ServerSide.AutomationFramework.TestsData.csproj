@@ -21,12 +21,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Storages\**" />
-    <EmbeddedResource Remove="Storages\**" />
-    <None Remove="Storages\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Include="..\..\StyleCop\GlobalSuppressions.cs" Link="GlobalSuppressions.cs" />
   </ItemGroup>
 

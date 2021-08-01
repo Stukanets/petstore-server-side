@@ -59,11 +59,10 @@ namespace Kpi.ServerSide.AutomationFramework.Platform.Client
                 .AddAuthorizationHeader(accessToken);
             return await _client.ExecuteAsync(request);
         }
-        
-        protected async Task<IRestResponse> ExecutePostAsync(string uri, string accessToken)
+
+        protected async Task<IRestResponse> ExecuteDeleteAsync(string uri)
         {
-            var request = new RestRequest(uri, Method.POST)
-                .AddAuthorizationHeader(accessToken);
+            var request = new RestRequest(uri, Method.DELETE);
             return await _client.ExecuteAsync(request);
         }
 
@@ -80,7 +79,7 @@ namespace Kpi.ServerSide.AutomationFramework.Platform.Client
             return response.GetModel<T>();
         }
 
-        protected async Task<IRestResponse> ExecutePutAsync<T2>(string uri, T2 body, string accessToken)
+        protected async Task<IRestResponse> ExecutePutAsync<T2>(string uri, T2 body, string accessToken = null)
             where T2 : class
         {
             var request = CreateRequest(uri, Method.PUT, body, accessToken);
