@@ -1,0 +1,19 @@
+# Prerequisites
+
+/.vs/*
+/.idea/*
+*/bin/*
+*/obj/*
+*.DotSettings
+*/*.feature.cs
+
+
+/TestResults/*.html
+/*/*/bin/*
+/*/*/obj
+
+*.feature.cs
+*.csproj.user
+*.sln.DotSettings.user
+/*/*/TestResults/*
+*.txt
