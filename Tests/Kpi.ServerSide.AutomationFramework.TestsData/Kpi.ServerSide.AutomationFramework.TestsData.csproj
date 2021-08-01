@@ -41,8 +41,4 @@
     <ProjectReference Include="..\..\Platform\Kpi.ServerSide.AutomationFramework.Platform\Kpi.ServerSide.AutomationFramework.Platform.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Storages\" />
-  </ItemGroup>
-
 </Project>

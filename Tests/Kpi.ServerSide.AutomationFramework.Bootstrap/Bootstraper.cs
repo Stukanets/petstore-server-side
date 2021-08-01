@@ -1,9 +1,9 @@
 ﻿using Autofac;
 using Kpi.ServerSide.AutomationFramework.Model.Domain.Pet;
 using Kpi.ServerSide.AutomationFramework.Model.Platform.Communication;
+using Kpi.ServerSide.AutomationFramework.Pet;
 using Kpi.ServerSide.AutomationFramework.Platform.Communication;
 using Kpi.ServerSide.AutomationFramework.Platform.Configuration.Environment;
-using Kpi.ServerSide.AutomationFramework.YourDomain.Pet;
 using Microsoft.Extensions.Configuration;
 using RestSharp;
 using Serilog;
