@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Kpi.ServerSide.AutomationFramework.Model.Domain.User;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Kpi.ServerSide.AutomationFramework.Assignment.User
 {
@@ -18,7 +19,7 @@ namespace Kpi.ServerSide.AutomationFramework.Assignment.User
             UserLoginRequest userLoginRequest)
         {
             var checksDone = 0;
-            while (true)
+            while (checksDone < 5)
             {
                 try
                 {
@@ -29,12 +30,10 @@ namespace Kpi.ServerSide.AutomationFramework.Assignment.User
                 {
                     Thread.Sleep(500);
                     checksDone++;
-                    if (checksDone == 5)
-                    {
-                        throw;
-                    }
                 }
             }
+
+            return null;
         }
     }
 }
