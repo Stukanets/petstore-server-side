@@ -1,4 +1,8 @@
 ﻿using Autofac;
+using Kpi.ServerSide.AutomationFramework.Assignment.Assignment;
+using Kpi.ServerSide.AutomationFramework.Assignment.User;
+using Kpi.ServerSide.AutomationFramework.Model.Domain.Assignment;
+using Kpi.ServerSide.AutomationFramework.Model.Domain.User;
 using Kpi.ServerSide.AutomationFramework.Model.Platform.Communication;
 using Kpi.ServerSide.AutomationFramework.Platform.Communication;
 using Kpi.ServerSide.AutomationFramework.Platform.Configuration.Environment;
@@ -37,8 +41,12 @@ namespace Kpi.ServerSide.AutomationFramework.Bootstrap
             Builder.RegisterType<RestClient>().As<IRestClient>().InstancePerDependency();
 
             // Api Clients
+            Builder.RegisterType<UserApiClient>().As<IUserApiClient>().SingleInstance();
+            Builder.RegisterType<AssignmentApiClient>().As<IAssignmentApiClient>().SingleInstance();
 
             // Logic
+            Builder.RegisterType<UserContext>().As<IUserContext>().InstancePerDependency();
+            Builder.RegisterType<AssignmentContext>().As<IAssignmentContext>().SingleInstance();
         }
     }
 }
