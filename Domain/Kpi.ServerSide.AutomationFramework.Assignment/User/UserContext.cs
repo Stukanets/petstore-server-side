@@ -1,6 +1,9 @@
-﻿using System.Threading;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Kpi.ServerSide.AutomationFramework.Model.Domain.User;
+using Kpi.ServerSide.AutomationFramework.Platform.Waiters;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Kpi.ServerSide.AutomationFramework.Assignment.User
@@ -18,22 +21,25 @@ namespace Kpi.ServerSide.AutomationFramework.Assignment.User
         public async Task<UserLoginResponse> CreateUserTokenByCredentialsAsync(
             UserLoginRequest userLoginRequest)
         {
-            var checksDone = 0;
-            while (checksDone < 5)
+            var exceptions = new List<Exception>();
+            for (var attempted = 0; attempted < 5; attempted++)
             {
                 try
                 {
-                    var result = await _userApiClient.CreateUserTokenByCredentialsAsync(userLoginRequest);
-                    return result;
+                    if (attempted > 0)
+                    {
+                        Thread.Sleep(500);
+                    }
+
+                    return await _userApiClient.CreateUserTokenByCredentialsAsync(userLoginRequest);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    Thread.Sleep(500);
-                    checksDone++;
+                    exceptions.Add(ex);
                 }
             }
 
-            return null;
+            throw new AggregateException(exceptions);
         }
     }
 }
