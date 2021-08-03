@@ -51,31 +51,6 @@ namespace Kpi.ServerSide.AutomationFramework.Assignment.Assignment
             return restResponse.GetModel<AssignmentResponse>();
         }
 
-        public async Task<ResponseMessage> GetAssignmentByIdResponseAsync(
-            string assignmentId,
-            string accessToken)
-        {
-            Logger.Information(
-                "Start '{@Method}' with {@assignmentId} as task id and {@accessToken} as access token",
-                MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                assignmentId,
-                accessToken);
-
-            var restResponse = await ExecuteGetAsync(
-                $"/task/{assignmentId}", accessToken);
-
-            Logger.Information(
-                "Finished '{@Method}' with {@restResponse}",
-                MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                restResponse);
-
-            return new ResponseMessage
-            {
-                Content = restResponse.Content,
-                StatusCode = restResponse.StatusCode.ToString()
-            };
-        }
-
         public async Task<ResponseMessage> CreateAssignmentResponseAsync(
             AssignmentRequest assignmentRequest,
             string accessToken)

@@ -27,13 +27,6 @@ namespace Kpi.ServerSide.AutomationFramework.Assignment.Assignment
             return await _taskApiClient.GetAssignmentByIdAsync(assignmentId, Token.BearerTokenGenerator(accessToken));
         }
 
-        public async Task<ResponseMessage> GetAssignmentByIdResponseAsync(
-            string assignmentId, 
-            string accessToken)
-        {
-            return await _taskApiClient.GetAssignmentByIdResponseAsync(assignmentId, Token.BearerTokenGenerator(accessToken));
-        }
-
         public async Task<ResponseMessage> CreateAssignmentResponseAsync(
             AssignmentRequest assignmentRequest, 
             string accessToken)

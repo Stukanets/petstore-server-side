@@ -11,10 +11,6 @@ namespace Kpi.ServerSide.AutomationFramework.Model.Domain.Assignment
             string assignmentId,
             string accessToken);
 
-        Task<ResponseMessage> GetAssignmentByIdResponseAsync(
-            string assignmentId,
-            string accessToken);
-
         Task<ResponseMessage> CreateAssignmentResponseAsync(
             AssignmentRequest assignmentRequest,
             string accessToken);
