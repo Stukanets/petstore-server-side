@@ -20,7 +20,7 @@ namespace Kpi.ServerSide.AutomationFramework.Assignment.User
             client.SetBaseUri(environmentConfiguration.EnvironmentUri);
         }
 
-        public async Task<UserLoginResponse> GetUserTokenByCredentialsAsync(
+        public async Task<UserLoginResponse> CreateUserTokenByCredentialsAsync(
             UserLoginRequest userLoginRequest)
         {
             Logger.Information(

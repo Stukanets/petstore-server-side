@@ -14,7 +14,7 @@ namespace Kpi.ServerSide.AutomationFramework.Assignment.User
             _userApiClient = userApiClient;
         }
 
-        public async Task<UserLoginResponse> GetUserTokenByCredentialsAsync(
+        public async Task<UserLoginResponse> CreateUserTokenByCredentialsAsync(
             UserLoginRequest userLoginRequest)
         {
             var checksDone = 0;
@@ -22,7 +22,7 @@ namespace Kpi.ServerSide.AutomationFramework.Assignment.User
             {
                 try
                 {
-                    var result = await _userApiClient.GetUserTokenByCredentialsAsync(userLoginRequest);
+                    var result = await _userApiClient.CreateUserTokenByCredentialsAsync(userLoginRequest);
                     return result;
                 }
                 catch

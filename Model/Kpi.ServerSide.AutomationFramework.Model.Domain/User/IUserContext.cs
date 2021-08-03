@@ -4,7 +4,7 @@ namespace Kpi.ServerSide.AutomationFramework.Model.Domain.User
 {
     public interface IUserContext
     {
-        Task<UserLoginResponse> GetUserTokenByCredentialsAsync(
+        Task<UserLoginResponse> CreateUserTokenByCredentialsAsync(
             UserLoginRequest userLoginRequest);
     }
 }

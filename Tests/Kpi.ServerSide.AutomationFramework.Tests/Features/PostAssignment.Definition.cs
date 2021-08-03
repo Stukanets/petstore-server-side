@@ -29,7 +29,7 @@ namespace Kpi.ServerSide.AutomationFramework.Tests.Features
         [Given(@"I have logged user")]
         public async Task GivenIHaveLoggedUser()
         {
-            _userToken = (await _userContext.GetUserTokenByCredentialsAsync(
+            _userToken = (await _userContext.CreateUserTokenByCredentialsAsync(
                     UserStorage.UserRequests["ValidUser"]))
                 .Token;
         }
